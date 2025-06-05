@@ -1,0 +1,16 @@
+{
+  "name": "smart-flashcard-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@fastify/swagger": "^8.15.0",
+    "@fastify/swagger-ui": "^1.10.2",
+    "fastify": "^4.29.1",
+    "sqlite": "^4.2.1",
+    "sqlite3": "^5.1.7"
+  }
+}
