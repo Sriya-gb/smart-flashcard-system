@@ -2,7 +2,7 @@ import db from './db.js';
 import { inferSubject } from './subjectClassifier.js';
 
 export async function flashcardRoutes(fastify, options) {
-  // Add flashcard
+ 
   fastify.post('/flashcard', async (req, reply) => {
     const { student_id, question, answer } = req.body;
     const subject = inferSubject(question + ' ' + answer);
@@ -20,7 +20,7 @@ export async function flashcardRoutes(fastify, options) {
     );
   });
 
-  // Get mixed flashcards
+  
   fastify.get('/get-subject', async (req, reply) => {
     const { student_id, limit } = req.query;
 
@@ -31,7 +31,7 @@ export async function flashcardRoutes(fastify, options) {
         if (err) {
           reply.code(500).send({ error: 'Failed to retrieve flashcards' });
         } else {
-          // Shuffle and filter to get diverse subjects
+         
           const subjectMap = new Map();
           rows.forEach((row) => {
             if (!subjectMap.has(row.subject)) subjectMap.set(row.subject, []);
