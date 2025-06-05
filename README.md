@@ -7,4 +7,7 @@ Flashcards can later be fetched in a mixed-subject batch for each student.
 - REST API with OpenAPI (Swagger) documentation 
 
 ---
-install dependencies
+install dependencies:
+npm install
+Start the backend server with:
+npm start
