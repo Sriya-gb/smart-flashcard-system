@@ -11,3 +11,5 @@ install dependencies:
 npm install
 Start the backend server with:
 npm start
+
+The server will start on http://localhost:3000.
