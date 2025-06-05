@@ -6,20 +6,19 @@ import { open } from 'sqlite';
 import fastifySwagger from '@fastify/swagger';
 import fastifySwaggerUI from '@fastify/swagger-ui';
 
-// Needed for __dirname in ESM
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Initialize Fastify
+
 const app = Fastify({ logger: true });
 
-// SQLite setup
+
 const dbPromise = open({
   filename: path.join(__dirname, 'flashcards.db'),
   driver: sqlite3.Database,
 });
 
-// Create flashcards table if it doesn't exist
+
 const initDb = async () => {
   const db = await dbPromise;
   await db.exec(`
@@ -33,7 +32,7 @@ const initDb = async () => {
   `);
 };
 
-// Very basic rule-based subject classification
+
 function inferSubject(text) {
   const rules = {
     physics: ['force', 'acceleration', 'gravity', 'newton'],
@@ -53,7 +52,7 @@ function inferSubject(text) {
   return 'General';
 }
 
-// Swagger setup
+
 await app.register(fastifySwagger, {
   swagger: {
     info: {
